@@ -47,37 +47,31 @@ Puedes excluir tipos específicos de recursos de tu diagrama:
 
 ```
 # Excluir roles y políticas IAM
-diagraform generate /ruta/al/terraform.tfstate 
---exclude aws_iam_role --exclude aws_iam_policy
+diagraform generate /ruta/al/terraform.tfstate --exclude aws_iam_role --exclude aws_iam_policy
 
 # Excluir logs de CloudWatch
-diagraform generate /ruta/al/terraform.tfstate 
---exclude aws_cloudwatch_log_group
+diagraform generate /ruta/al/terraform.tfstate --exclude aws_cloudwatch_log_group
 ```
 ### Agrupación de Recursos
 Puedes agrupar recursos por VPC o por tipo de recurso:
 
 ```
 # Agrupar por VPC
-diagraform generate /ruta/al/terraform.tfstate 
---group-by vpc
+diagraform generate /ruta/al/terraform.tfstate --group-by vpc
 
 # Agrupar por tipo de recurso
-diagraform generate /ruta/al/terraform.tfstate 
---group-by type
+diagraform generate /ruta/al/terraform.tfstate --group-by type
 ```
 ### Clusters Anidados
 Crea clusters anidados para recursos relacionados (especialmente útil para clusters ECS, EKS y RDS):
 
 ```
 # Crear clusters anidados agrupados por VPC
-diagraform generate /ruta/al/terraform.tfstate 
---group-by vpc --nested
+diagraform generate /ruta/al/terraform.tfstate --group-by vpc --nested
 
 # Crear clusters anidados agrupados por tipo 
 de recurso
-diagraform generate /ruta/al/terraform.tfstate 
---group-by type --nested
+diagraform generate /ruta/al/terraform.tfstate --group-by type --nested
 ```
 
 ### Combinación de Opciones
@@ -86,15 +80,11 @@ Puedes combinar múltiples opciones para diagramas más específicos:
 ```
 # Agrupar por VPC, crear clusters anidados y 
 excluir recursos IAM
-diagraform generate /ruta/al/terraform.tfstate 
---group-by vpc --nested --exclude aws_iam_role 
---exclude aws_iam_policy
+diagraform generate /ruta/al/terraform.tfstate --group-by vpc --nested --exclude aws_iam_role --exclude aws_iam_policy
 
 # Filtrar para incluir solo recursos 
 específicos y excluir otros
-diagraform generate /ruta/al/terraform.tfstate 
---filter aws_vpc --filter aws_subnet --filter 
-aws_instance --exclude aws_cloudwatch_log_group
+diagraform generate /ruta/al/terraform.tfstate --filter aws_vpc --filter aws_subnet --filter aws_instance --exclude aws_cloudwatch_log_group
 ```
 ### Análisis de Archivos de Estado
 Puedes analizar un archivo de estado sin generar un diagrama:
@@ -123,13 +113,11 @@ diagraform generate /ruta/al/terraform.tfstate
 ```
 ### Excluyendo Recursos IAM
 ```
-diagraform generate /ruta/al/terraform.tfstate 
---exclude aws_iam_role --exclude aws_iam_policy
+diagraform generate /ruta/al/terraform.tfstate --exclude aws_iam_role --exclude aws_iam_policy
 ```
 ### Agrupación Anidada por VPC
 ```
-diagraform generate /ruta/al/terraform.tfstate 
---group-by vpc --nested
+diagraform generate /ruta/al/terraform.tfstate --group-by vpc --nested
 ```
 
 ## Advertencia

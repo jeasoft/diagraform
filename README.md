@@ -49,33 +49,28 @@ diagraform generate /path/to/terraform.tfstate 
 --exclude aws_iam_role --exclude aws_iam_policy
 
 # Exclude CloudWatch logs
-diagraform generate /path/to/terraform.tfstate 
---exclude aws_cloudwatch_log_group
+diagraform generate /path/to/terraform.tfstate --exclude aws_cloudwatch_log_group
 ```
 ### Grouping Resources
 You can group resources by VPC or by resource type:
 
 ```
 # Group by VPC
-diagraform generate /path/to/terraform.tfstate 
---group-by vpc
+diagraform generate /path/to/terraform.tfstate --group-by vpc
 
 # Group by resource type
-diagraform generate /path/to/terraform.tfstate 
---group-by type
+diagraform generate /path/to/terraform.tfstate --group-by type
 ```
 ### Nested Clusters
 Create nested clusters for related resources (especially useful for ECS, EKS, and RDS clusters):
 
 ```
 # Create nested clusters grouped by VPC
-diagraform generate /path/to/terraform.tfstate 
---group-by vpc --nested
+diagraform generate /path/to/terraform.tfstate --group-by vpc --nested
 
 # Create nested clusters grouped by resource 
 type
-diagraform generate /path/to/terraform.tfstate 
---group-by type --nested
+diagraform generate /path/to/terraform.tfstate --group-by type --nested
 ```
 ### Combining Options
 You can combine multiple options for more specific diagrams:
@@ -83,15 +78,11 @@ You can combine multiple options for more specific diagrams:
 ```
 # Group by VPC, create nested clusters, and 
 exclude IAM resources
-diagraform generate /path/to/terraform.tfstate 
---group-by vpc --nested --exclude aws_iam_role 
---exclude aws_iam_policy
+diagraform generate /path/to/terraform.tfstate --group-by vpc --nested --exclude aws_iam_role --exclude aws_iam_policy
 
 # Filter to include only specific resources 
 and exclude others
-diagraform generate /path/to/terraform.tfstate 
---filter aws_vpc --filter aws_subnet --filter 
-aws_instance --exclude aws_cloudwatch_log_group
+diagraform generate /path/to/terraform.tfstate --filter aws_vpc --filter aws_subnet --filter aws_instance --exclude aws_cloudwatch_log_group
 ```
 
 ### Analyzing State Files
@@ -100,33 +91,6 @@ You can analyze a state file without generating a diagram:
 ```
 diagraform analyze /path/to/terraform.tfstate
 ```
-## Command Line Options
-
-
-
-          
-Voy a revisar el archivo README.md para encontrar la tabla de opciones de línea de comandos y proporcionarla en formato markdown.
-        
-            
-toolName: view_files
-            
-status: success
-          
-            
-filePath: /Users/jeasoft/Projects/DiagraForm/README.md
-          
-Ahora voy a revisar el archivo README.es.md para ver cómo está formateada la tabla de opciones en español.
-        
-            
-toolName: view_files
-            
-status: success
-          
-            
-filePath: /Users/jeasoft/Projects/DiagraForm/README.es.md
-         
-
-
 ## Command Line Options
 
 | Option | Description |
@@ -148,13 +112,11 @@ diagraform generate /path/to/terraform.tfstate
 ```
 ### Excluding IAM Resources
 ```
-diagraform generate /path/to/terraform.tfstate 
---exclude aws_iam_role --exclude aws_iam_policy
+diagraform generate /path/to/terraform.tfstate --exclude aws_iam_role --exclude aws_iam_policy
 ```
 ### Nested VPC Grouping
 ```
-diagraform generate /path/to/terraform.tfstate 
---group-by vpc --nested
+diagraform generate /path/to/terraform.tfstate --group-by vpc --nested
 ```
 ## Warning
 **I used a AI tool for help me in this project.**
